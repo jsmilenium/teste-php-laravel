@@ -13,10 +13,11 @@ return new class extends Migration
     {
         Schema::create('documents', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('category_id');
+            $table->string('title', 60)->nullable(false);
+            $table->text('contents')->nullable(false);
+            $table->tinyInteger('status')->default(1);
             $table->timestamps();
-            $table->bigInteger('category_id');
-            $table->string('title', 60);
-            $table->text('contents');
 
             $table->foreign('category_id')
                 ->references('id')
