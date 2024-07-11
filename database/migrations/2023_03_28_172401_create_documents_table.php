@@ -14,10 +14,12 @@ return new class extends Migration
         Schema::create('documents', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('category_id');
+            $table->string('exercise_year', 4)->nullable(false);
             $table->string('title', 60)->nullable(false);
             $table->text('contents')->nullable(false);
             $table->tinyInteger('status')->default(1);
             $table->timestamps();
+            $table->softDeletes();
 
             $table->foreign('category_id')
                 ->references('id')

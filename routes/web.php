@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DocumentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,9 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::post('/upload', 'App\Http\Controllers\UploadController@upload')->name('upload');
-Route::get('/process', 'App\Http\Controllers\ProcessJobController@process')->name('process');
+Route::get('/documents', [DocumentController::class, 'index'])->name('documents.index');
+Route::post('/documents/queue-import', [DocumentController::class, 'queueImport'])->name('documents.queueImport');
+Route::post('/documents/process-queue', [DocumentController::class, 'processQueue'])->name('documents.processQueue');
