@@ -62,5 +62,11 @@ Boa sorte!
 ### Testes
 - docker-compose exec web php artisan test
 
+### Sonarqube
+- http://localhost:9001
+- admin : admin
+
+![Sonarqube](documents_images/sonarqube_scan.png)
+
 ### Diagrama do Banco de Dados
 ![Diagrama do Banco de Dados](documents_images/database_diagram.png)
